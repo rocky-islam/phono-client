@@ -1,7 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import phonelogo from '../../../../assets/images/phonologo.png'
+import logo from '../../../../assets/images/logo.png';
+
 
 const Navbar = () => {
+    const menuItems = <React.Fragment>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/blog'>Blog</Link></li>
+        <li><Link to='/login'>Login</Link></li>
+    </React.Fragment>
     return (
       <div>
         <div className="navbar bg-base-100">
@@ -27,69 +35,17 @@ const Navbar = () => {
                 tabIndex={0}
                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
               >
-                <li>
-                  <Link>Item 1</Link>
-                </li>
-                <li tabIndex={0}>
-                  <Link className="justify-between">
-                    Parent
-                    <svg
-                      className="fill-current"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                    </svg>
-                  </Link>
-                  <ul className="p-2">
-                    <li>
-                      <Link>Submenu 1</Link>
-                    </li>
-                    <li>
-                      <Link>Submenu 2</Link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link>Item 3</Link>
-                </li>
+                {menuItems}
+                
               </ul>
             </div>
-            <Link className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+            <Link className="btn btn-ghost normal-case text-xl">
+              <img className="w-16 md:w-14" src={phonelogo} alt="" />
+              <img className="w-16 md:w-28" src={logo} alt="" />
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal p-0">
-              <li>
-                <Link>Item 1</Link>
-              </li>
-              <li tabIndex={0}>
-                <Link>
-                  Parent
-                  <svg
-                    className="fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                  </svg>
-                </Link>
-                <ul className="p-2">
-                  <li>
-                    <Link>Submenu 1</Link>
-                  </li>
-                  <li>
-                    <Link>Submenu 2</Link>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <Link>Item 3</Link>
-              </li>
-            </ul>
+            <ul className="menu menu-horizontal p-0">{menuItems}</ul>
           </div>
           <div className="navbar-end">
             <Link className="btn">Get started</Link>
