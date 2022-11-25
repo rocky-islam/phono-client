@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "catName": "I Phone",
+    "image": "https://www.freepnglogos.com/uploads/apple-iphone-logo-png-1.png",
+    "product": [
+      {
+        "name": "i phone 8",
+        "picture": "",
+        "resellPrice": "6000",
+        "originalPrice": "8000",
+        "location": "dhaka",
+        "sellerName": "john",
+        "used": "4"
+      },
+      {
+        "name": "i phone 10",
+        "picture": "",
+        "resellPrice": "60000",
+        "originalPrice": "80000",
+        "location": "Rajshahi",
+        "sellerName": "lime",
+        "used": "43"
+      },
+      {
+        "name": "i phone 6",
+        "picture": "",
+        "resellPrice": "6000",
+        "originalPrice": "8000",
+        "location": "dhaka",
+        "sellerName": "Sumon",
+        "used": "7"
+      }
+    ]
+  },
+
+  {
+    "id": 2,
+    "catName": "Samsung",
+    "image": "https://1000logos.net/wp-content/uploads/2017/06/Samsung-logo.jpg",
+    "product": [
+      {
+        "name": "Samsung Galaxy Note 8",
+        "picture": "",
+        "resellPrice": "60500",
+        "originalPrice": "80500",
+        "location": "Barisal",
+        "sellerName": "Suvo",
+        "used": "4"
+      },
+      {
+        "name": "Samsung s20",
+        "picture": "",
+        "resellPrice": "67000",
+        "originalPrice": "88000",
+        "location": "Nokhali",
+        "sellerName": "Kabila",
+        "used": "2"
+      },
+      {
+        "name": "Samsung s10",
+        "picture": "",
+        "resellPrice": "30000",
+        "originalPrice": "45000",
+        "location": "Rajshahi",
+        "sellerName": "CM Punk",
+        "used": "4"
+      }
+    ]
+  },
+
+  {
+    "id": 3,
+    "catName": "One Plus",
+    "image": "https://assets.mspimages.in/wp-content/uploads/2020/03/OnePlus-New-Logo.jpg",
+    "product": [
+      {
+        "name": "One Plus 6",
+        "picture": "",
+        "resellPrice": "36000",
+        "originalPrice": "48000",
+        "location": "Bogura",
+        "sellerName": "Saiful",
+        "used": "1"
+      },
+      {
+        "name": "One Plus 8",
+        "picture": "",
+        "resellPrice": "56000",
+        "originalPrice": "88000",
+        "location": "dhaka",
+        "sellerName": "Doe",
+        "used": "6"
+      },
+      {
+        "name": "One Plus 10",
+        "picture": "",
+        "resellPrice": "66000",
+        "originalPrice": "88000",
+        "location": "Khulna",
+        "sellerName": "Tonmoi",
+        "used": "2"
+      }
+    ]
+  }
+]
