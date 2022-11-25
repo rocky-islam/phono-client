@@ -29,6 +29,7 @@ const Navbar = () => {
         {
             user?.uid ? 
             <>
+                <li><Link to='/dashboard'>Dashboard</Link></li>
                 <li><button onClick={handleLogOut}>Logout</button></li>
             </>
             :
@@ -37,6 +38,8 @@ const Navbar = () => {
             </>
         }
     </React.Fragment>
+
+    
     return (
       <div>
         <div className="navbar bg-base-100">
@@ -75,7 +78,12 @@ const Navbar = () => {
             <ul className="menu menu-horizontal p-0">{menuItems}</ul>
           </div>
           <div className="navbar-end">
-            <Link className="btn">Get started</Link>
+            <div className='mx-3'>
+                {
+                    user?.uid && <p>{user.displayName}</p>
+                }
+            </div>
+            {/* <Link className="btn">Get started</Link> */}
           </div>
         </div>
       </div>
