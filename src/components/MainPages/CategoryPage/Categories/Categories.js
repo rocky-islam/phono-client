@@ -14,8 +14,8 @@ const Categories = () => {
 
     return (
       <div className="md:mx-8 mx-auto">
-        <div>
-          <h1 className="text-xl text-center">{products.length} all Product</h1>
+        <div className='my-4'>
+          <h1 className="text-xl text-center"> Total Product: {products.length}</h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* {product.map((items) => (

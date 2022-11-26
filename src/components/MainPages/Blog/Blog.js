@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Blog = () => {
+   const current = new Date();
+  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+
   return (
     <div>
       <div className="w-3/4 mx-auto my-9 p-4">
         <h2 className="text-2xl font-semibold mb-8">Our Blogs</h2>
+        <h2 className="text-2xl font-semibold mb-8">Time {date}</h2>
         <div>
           <p className="font-bold">
             Question: What are the different ways to manage a state in a React

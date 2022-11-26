@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const CategoriesItems = ({ items }) => {
 //   console.log(items);
-  const {_id, name, picture, resellPrice, originalPrice, location, used} = items;
+  const {_id, catName, name, picture, resellPrice, originalPrice, location, used} = items;
 
   return (
     <div className="md:my-20">
