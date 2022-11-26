@@ -4,6 +4,7 @@ import Main from "../../components/Layout/Main";
 import Blog from "../../components/MainPages/Blog/Blog";
 import Categories from "../../components/MainPages/CategoryPage/Categories/Categories";
 import CategoryPage from "../../components/MainPages/CategoryPage/CategoryPage";
+import SingleItem from "../../components/MainPages/CategoryPage/SingleItem/SingleItem";
 import ErrorPage from "../../components/MainPages/ErrorPage/ErrorPage";
 import Home from "../../components/MainPages/Home/Home";
 import Login from "../../components/MainPages/Login/Login";
@@ -40,6 +41,11 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`),
         element: <PrivateRoute><Categories></Categories></PrivateRoute>,
       },
+      {
+        path: '/item/:id',
+        element: <SingleItem></SingleItem>,
+        loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+      }
     ],
   },
   {

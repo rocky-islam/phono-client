@@ -19,7 +19,7 @@ const CategoriesItems = ({ items }) => {
             <p>Location: {location}</p>
             <div className="card-actions justify-end">
               <button className="btn btn-primary">
-                <Link to={`/item/${_id}`}>Buy now</Link>
+                <Link to={`/item/${_id}`}>See Details</Link>
               </button>
             </div>
           </div>

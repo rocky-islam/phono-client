@@ -16,7 +16,7 @@ const auth = getAuth(app);
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, SetLoading] = useState(true);
-    const [refresh, setRefresh] = useState();
+    const [refresh, setRefresh] = useState(true);
 
     // create user with email password
     const createUser = (email, password) =>{
@@ -36,11 +36,13 @@ const AuthProvider = ({children}) => {
             // console.log('observing user:',currentUser);
             setUser(currentUser);
             SetLoading(false);
-            setRefresh(!refresh)
+            // setRefresh(!refresh);
             
         })
-        return unsubscribe();
-    },[refresh]);
+        
+        return () => unsubscribe();
+        
+    },[]);
 
     // Update profile
     const updateUser = (userInfo) =>{
