@@ -11,7 +11,26 @@ const SingleItem = () => {
 
     const handleBuyNow = event =>{
         event.preventDefault();
-        toast.success('Successfully Buy')
+        const form = event.target;
+        const price = form.price.value;
+        const userName = form.name.value;
+        const email = form.email.value;
+        const phone = form.phone.value;
+
+        console.log(name, price, userName, email, phone);
+
+        const buyItem ={
+            category: catName,
+            product: name,
+            picture: picture,
+            price: price,
+            userName: userName,
+            email: email,
+            phone: phone
+        }
+        console.log(buyItem);
+        
+        
     }
 
     if (loading) {
@@ -31,7 +50,7 @@ const SingleItem = () => {
           <div>
             <h1 className="lg:text-4xl text-center">{name}</h1>
           </div>
-          <div className="card card shadow-xl">
+          <div className="card card-body shadow-xl">
             <figure className="flex justify-center">
               <img src={picture} className="w-4/6 p-4" alt="" />
             </figure>
@@ -71,23 +90,67 @@ const SingleItem = () => {
             <h3 className="text-lg font-bold">
               Buy <span className="text-green-500">{name}</span> Now
             </h3>
-            <p className="py-4">price: {resellPrice}</p>
-            <p>Name: {user?.displayName}</p>
-            <p>Name: {user?.email}</p>
-            <div>
-                <label className='label'>
-                    <span className='label-text'>Enter your Phone Number</span>
+            <form
+              onSubmit={handleBuyNow}
+              className="grid grid-cols-1 gap-3 mt-10"
+            >
+              <div>
+                <label className="label">
+                  <span className="label-text">Price</span>
                 </label>
+                <input
+                  type="text"
+                  name='price'
+                  disabled
+                  value={resellPrice}
+                  className="input w-full input-bordered "
+                />
+              </div>
+              <div>
+                <label className="label">
+                  <span className="label-text">Your Name</span>
+                </label>
+                <input
+                  name="name"
+                  type="text"
+                  defaultValue={user?.displayName}
+                  disabled
+                  placeholder="Your Name"
+                  className="input w-full input-bordered"
+                />
+              </div>
+              <div>
+                <label className="label">
+                  <span className="label-text">Your Email</span>
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  defaultValue={user?.email}
+                  disabled
+                  placeholder="Email Address"
+                  className="input w-full input-bordered"
+                />
+              </div>
+              <div>
+                <label className="label">
+                  <span className="label-text">Your Phone</span>
+                </label>
+                <input
+                  name="phone"
+                  type="text"
+                  placeholder="Phone Number"
+                  className="input w-full input-bordered"
+                  required
+                />
+              </div>
+              <br />
               <input
-                type="text"
-                name='phone'
-                placeholder="Type here"
-                className="input input-bordered input-primary w-full max-w-xs"
+                className="btn btn-accent w-full"
+                type="submit"
+                value="Submit"
               />
-            </div>
-            <div>
-                <button onClick={handleBuyNow} type="submit" className='btn btn-primary my-2'>Buy now</button>
-            </div>
+            </form>
           </div>
         </div>
         {/* Model */}
