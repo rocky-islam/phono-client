@@ -14,8 +14,9 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({children}) => {
-    const [user, setUser] = useState();
+    const [user, setUser] = useState(null);
     const [loading, SetLoading] = useState(true);
+    const [refresh, setRefresh] = useState(true);
 
     // create user with email password
     const createUser = (email, password) =>{
@@ -32,13 +33,14 @@ const AuthProvider = ({children}) => {
     // manage user /
     useEffect(() =>{
         const unsubscribe = onAuthStateChanged(auth, currentUser =>{
-            console.log('observing user:',currentUser);
+            // console.log('observing user:',currentUser);
             setUser(currentUser);
             SetLoading(false);
+            setRefresh(!refresh)
             
         })
         return unsubscribe();
-    },[]);
+    },[refresh]);
 
     // Update profile
     const updateUser = (userInfo) =>{

@@ -1,12 +1,11 @@
 [
   {
-    "id": 1,
     "catName": "I Phone",
     "image": "https://www.freepnglogos.com/uploads/apple-iphone-logo-png-1.png",
     "product": [
       {
         "name": "i phone 8",
-        "picture": "",
+        "picture": "https://www.bdstall.com/asset/product-image/giant_132782.jpg",
         "resellPrice": "6000",
         "originalPrice": "8000",
         "location": "dhaka",
@@ -15,7 +14,7 @@
       },
       {
         "name": "i phone 10",
-        "picture": "",
+        "picture": "https://i0.wp.com/www.mobilebd.co/wp-content/uploads/2020/12/Apple-iPhone-XS-Max-Official-images.png?fit=500%2C500&ssl=1",
         "resellPrice": "60000",
         "originalPrice": "80000",
         "location": "Rajshahi",
@@ -24,7 +23,7 @@
       },
       {
         "name": "i phone 6",
-        "picture": "",
+        "picture": "https://www.mobiledokan.com/wp-content/uploads/2019/03/Apple-iPhone-6S-Plus-Gold.jpeg",
         "resellPrice": "6000",
         "originalPrice": "8000",
         "location": "dhaka",
@@ -35,13 +34,12 @@
   },
 
   {
-    "id": 2,
     "catName": "Samsung",
     "image": "https://1000logos.net/wp-content/uploads/2017/06/Samsung-logo.jpg",
     "product": [
       {
         "name": "Samsung Galaxy Note 8",
-        "picture": "",
+        "picture": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-note8-5.jpg",
         "resellPrice": "60500",
         "originalPrice": "80500",
         "location": "Barisal",
@@ -50,7 +48,7 @@
       },
       {
         "name": "Samsung s20",
-        "picture": "",
+        "picture": "https://www.mobiledokan.com/wp-content/uploads/2020/02/Samsung-Galaxy-S20.jpg",
         "resellPrice": "67000",
         "originalPrice": "88000",
         "location": "Nokhali",
@@ -59,7 +57,7 @@
       },
       {
         "name": "Samsung s10",
-        "picture": "",
+        "picture": "https://www.mobiledokan.com/wp-content/uploads/2019/03/Samsung-Galaxy-S10-Plus-White.jpg",
         "resellPrice": "30000",
         "originalPrice": "45000",
         "location": "Rajshahi",
@@ -70,13 +68,12 @@
   },
 
   {
-    "id": 3,
     "catName": "One Plus",
     "image": "https://assets.mspimages.in/wp-content/uploads/2020/03/OnePlus-New-Logo.jpg",
     "product": [
       {
         "name": "One Plus 6",
-        "picture": "",
+        "picture": "https://www.mobiledokan.com/wp-content/uploads/2020/04/OnePlus-6-red.jpg",
         "resellPrice": "36000",
         "originalPrice": "48000",
         "location": "Bogura",
@@ -85,7 +82,7 @@
       },
       {
         "name": "One Plus 8",
-        "picture": "",
+        "picture": "https://www.gizmochina.com/wp-content/uploads/2020/03/OnePlus-8-1-600x600.jpg",
         "resellPrice": "56000",
         "originalPrice": "88000",
         "location": "dhaka",
@@ -94,7 +91,7 @@
       },
       {
         "name": "One Plus 10",
-        "picture": "",
+        "picture": "https://fdn2.mobgsm.com/vv/pics/oneplus/oneplus-10-pro-2.jpg",
         "resellPrice": "66000",
         "originalPrice": "88000",
         "location": "Khulna",

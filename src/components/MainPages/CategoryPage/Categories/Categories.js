@@ -1,24 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import axios from 'axios';
+import CategoriesItems from '../CategoriesItems/CategoriesItems';
 
 const Categories = () => {
-    //  const [categories, setCategories] = useState([]);
-    //  console.log(categories);
-
-    //  useEffect(() => {
-    //    axios.get("product.json").then((data) => setCategories(data.data));
-    //  }, []);
-
-    const product = useLoaderData();
-    console.log(product);
+    
+    const products = useLoaderData();
+    console.log(products);
+    const {catName, product} = products;
+    console.log();
+    
     
 
-    
     return (
+      <div className="md:mx-8 mx-auto">
         <div>
-            hello category {product.length}
+          <h1 className="text-xl text-center">{catName} all Product</h1>
         </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {product.map((items) => (
+            <CategoriesItems
+              key={items.resellPrice}
+              items={items}
+            ></CategoriesItems>
+          ))}
+        </div>
+      </div>
     );
 };
 

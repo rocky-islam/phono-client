@@ -36,15 +36,20 @@ const router = createBrowserRouter([
         element: <Signup></Signup>,
       },
       {
-        path: "/category/:id",
-        loader: ({ params }) => fetch(`product.json/category/${params.id}`),
+        path: "/category/:_id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/catProduct/${params._id}`),
         element: <Categories></Categories>,
       },
     ],
   },
   {
-    path: '/dashboard',
-    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
   },
   {
     path: "*",

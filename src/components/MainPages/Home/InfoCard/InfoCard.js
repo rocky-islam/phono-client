@@ -7,9 +7,9 @@ const InfoCard = ({data}) => {
 
     return (
       <div>
-        <div className="card card-side bg-info p-6 shadow-xl">
+        <div className="card flex-col md:flex-row card-side bg-info p-4 shadow-xl">
           <figure>
-            <img src={icon} alt="Movie" />
+            <img className="w-1/4 md:w-full" src={icon} alt="Movie" />
           </figure>
           <div className="card-body text-white">
             <h2 className="card-title">{name}</h2>

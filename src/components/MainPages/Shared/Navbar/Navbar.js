@@ -1,20 +1,25 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import phonelogo from '../../../../assets/images/phonologo.png'
 import logo from '../../../../assets/images/logo.png';
 import { AuthContext } from '../../../AuthProvider';
+import toast from 'react-hot-toast';
 
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleLogOut = () =>{
         logOut()
-        .then(() => {})
+        .then(() => {
+          toast.success('Successfully Logout');
+          navigate('/login')
+        })
         .catch(error => console.log(error))
     }
 
-    const menuItems = <React.Fragment>
+    const menuItems = <>
         <li><Link to='/'>Home</Link></li>
         <li className='dropdown'>
             <label tabIndex={2} className="rounded-btn">Dropdown
@@ -37,7 +42,7 @@ const Navbar = () => {
                 <li><Link to='/login'>Login</Link></li>
             </>
         }
-    </React.Fragment>
+    </>
 
     
     return (
@@ -80,7 +85,7 @@ const Navbar = () => {
           <div className="navbar-end">
             <div className='mx-3'>
                 {
-                    user?.uid && <p>{user.displayName}</p>
+                    user?.uid && <p>{user?.displayName}</p>
                 }
             </div>
             {/* <Link className="btn">Get started</Link> */}
