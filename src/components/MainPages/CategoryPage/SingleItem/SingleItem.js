@@ -30,6 +30,20 @@ const SingleItem = () => {
         }
         console.log(buyItem);
         
+        fetch("http://localhost:5000/buyitem",{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(buyItem)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.acknowledged){
+                toast.success("Successfully Buy product");
+            }
+        })
         
     }
 
