@@ -5,13 +5,10 @@ import { Link } from "react-router-dom";
 const CategorySection = () => {
     const [categories, setCategories] = useState([]);
     console.log(categories);
-    
-    
-    
 
     useEffect(() => {
         axios
-          .get("http://localhost:5000/catProduct")
+          .get("http://localhost:5000/category")
           .then((data) => setCategories(data.data));
     },[])
 
@@ -30,7 +27,7 @@ const CategorySection = () => {
                 <h2 className="card-title">{category.catName}</h2>
                 <p>Click here to show all product in this category</p>
                 <div className="card-actions justify-end">
-                  <Link to={`/category/${category._id}`} className="btn btn-primary">See Product</Link>
+                  <Link to={`/category/${category.category_id}`} className="btn btn-primary">See Product</Link>
                 </div>
               </div>
             </div>

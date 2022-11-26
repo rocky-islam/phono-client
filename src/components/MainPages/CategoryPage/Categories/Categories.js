@@ -7,23 +7,28 @@ const Categories = () => {
     
     const products = useLoaderData();
     console.log(products);
-    const {catName, product} = products;
-    console.log();
+    // const {catName, product} = products;
+    // console.log();
     
     
 
     return (
       <div className="md:mx-8 mx-auto">
         <div>
-          <h1 className="text-xl text-center">{catName} all Product</h1>
+          <h1 className="text-xl text-center">{products.length} all Product</h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {product.map((items) => (
+          {/* {product.map((items) => (
             <CategoriesItems
-              key={items.resellPrice}
               items={items}
             ></CategoriesItems>
-          ))}
+          ))} */}
+          {
+            products.map(items =><CategoriesItems
+            key={items._id}
+            items={items}
+            ></CategoriesItems>)
+          }
         </div>
       </div>
     );
