@@ -14,7 +14,7 @@ const Signup = () => {
     const navigate = useNavigate();
 
     const handleSignUp = data => {
-        console.log(data);
+        console.log(data.role);
         setSignUpError('')
         createUser(data.email, data.password)
         .then(result =>{
@@ -27,7 +27,8 @@ const Signup = () => {
             }
             updateUser(userInfo)
             .then(() => {
-              navigate('/');
+              
+              saveUser(data.name, data.email, data.role);
             })
             .catch(error => console.log(error))
 
@@ -38,6 +39,23 @@ const Signup = () => {
         })
         
     };
+
+    // save user to database
+    const saveUser = (name, email, role) =>{
+      const user = {name, email, role};
+      fetch("http://localhost:5000/users",{
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(user)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        navigate("/");
+      })
+    }
 
     return (
       <div className="flex justify-center items-center h-[700px]">
@@ -95,15 +113,18 @@ const Signup = () => {
                   Select Your Role
                 </span>
               </label>
-              <select {...register("role")}
+              <select {...register("role",{
+                required: 'User Role is required'
+              })}
               className="select select-bordered"
               >
                 <option disabled selected>
-                  Select Your Role
+                  
                 </option>
                 <option value='user'>User</option>
                 <option value='seller'>Seller</option>
               </select>
+              {errors.role && <p className='text-red-500'>{errors.role?.message}</p>}
             </div>
             {signUpError && <p className='text-red-500'>{signUpError}</p>}
             <input type="submit" className="btn w-full my-4" value="signup" />

@@ -39,7 +39,7 @@ const MyProduct = () => {
             </thead>
             <tbody>
               {product.map((item ,i) => (
-                <tr>
+                <tr key={item._id}>
                   <th>
                     {i+1}
                   </th>
