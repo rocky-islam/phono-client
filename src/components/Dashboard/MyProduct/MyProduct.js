@@ -29,9 +29,7 @@ const MyProduct = () => {
             <thead>
               <tr>
                 <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
+                  
                 </th>
                 <th>Name</th>
                 <th>Brand</th>
@@ -40,12 +38,10 @@ const MyProduct = () => {
               </tr>
             </thead>
             <tbody>
-              {product.map((item) => (
+              {product.map((item ,i) => (
                 <tr>
                   <th>
-                    <label>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
+                    {i+1}
                   </th>
                   <td>
                     <div className="flex items-center space-x-3">
