@@ -121,7 +121,7 @@ const Signup = () => {
                 <option disabled selected>
                   
                 </option>
-                <option value='user'>User</option>
+                <option value='buyer'>Buyer</option>
                 <option value='seller'>Seller</option>
               </select>
               {errors.role && <p className='text-red-500'>{errors.role?.message}</p>}
