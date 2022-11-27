@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const CategorySection = () => {
     const [categories, setCategories] = useState([]);
-    console.log(categories);
+    // console.log(categories);
 
     useEffect(() => {
         axios
