@@ -41,7 +41,7 @@ const SingleItem = () => {
         .then(data => {
             console.log(data)
             if(data.acknowledged){
-                toast.success("Successfully Buy product");
+                toast.success("The item is booked.");
             }
         })
         
@@ -83,7 +83,7 @@ const SingleItem = () => {
             </div>
             <div className="p-5">
               <label htmlFor="my-modal-3" className="btn btn-primary px-8">
-                Proceed to buy
+                Book Now
               </label>
             </div>
           </div>

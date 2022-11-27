@@ -17,13 +17,13 @@ const Dashboard = () => {
     return (
       <div>
         This is Dash board
-        <div className="flex justify-center h-[500px] items-center">
+        {/* <div className="flex justify-center h-[500px] items-center">
           <div
             className="animate-spin  radial-progress text-primary"
             style={{ "--value": 80 }}
           >
           </div>
-        </div>
+        </div> */}
       </div>
     );
 };
