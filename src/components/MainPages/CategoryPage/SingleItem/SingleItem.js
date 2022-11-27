@@ -7,7 +7,7 @@ const SingleItem = () => {
     const {loading, user} = useContext(AuthContext);
     const item = useLoaderData();
     console.log(item);
-    const {catName, name, picture, location, originalPrice, resellPrice, postDate, sellerName, used}= item;
+    const {catName, name, picture, location, originalPrice, resellPrice, postDate, sellerName, used, sellerPhone, condation, purchase, description}= item;
 
     const handleBuyNow = event =>{
         event.preventDefault();
@@ -77,9 +77,13 @@ const SingleItem = () => {
               </p>
               <p>Resell Price: {resellPrice}</p>
               <p>Seller Name: {sellerName}</p>
+              <p>Seller Phone number: {sellerPhone}</p>
               <p>Used : {used}</p>
               <p>Post date: {postDate}</p>
               <p>Location: {location}</p>
+              <p>Product Condition: {condation}</p>
+              <p>Purchase Year: {purchase}</p>
+              <p>Description of this Product: {description}</p>
             </div>
             <div className="p-5">
               <label htmlFor="my-modal-3" className="btn btn-primary px-8">
@@ -114,7 +118,7 @@ const SingleItem = () => {
                 </label>
                 <input
                   type="text"
-                  name='price'
+                  name="price"
                   disabled
                   value={resellPrice}
                   className="input w-full input-bordered "
