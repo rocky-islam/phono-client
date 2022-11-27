@@ -80,7 +80,7 @@ const Navbar = () => {
                 </div>
               </ul>
             </div>
-            <Link className="btn btn-ghost normal-case text-xl">
+            <Link to='/' className="btn btn-ghost normal-case text-xl">
               <img className="w-16 md:w-14" src={phonelogo} alt="" />
               <img className="w-16 md:w-28" src={logo} alt="" />
             </Link>
