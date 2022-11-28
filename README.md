@@ -1,3 +1,30 @@
+# Phono- website
+
+## Developer: Md. Rocky islam
+
+#### Live Site Link: [Learning-hub](https://phono-4b3fd.web.app/ "Learning-hub") and https://phono-4b3fd.web.app/
+
+### Features and functionality
+
+- Firebase authentication
+- Server side
+- jwt token
+- stripe payment
+- add product
+- Responsive design
+
+- Privet route
+
+### Technologies
+
+- React js
+- tailwind
+- node js
+- React icon
+- React Router Dom
+- Firebase
+- toast
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

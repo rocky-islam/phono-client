@@ -45,14 +45,24 @@ const router = createBrowserRouter([
       },
       {
         path: "/category/:id",
-        loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`),
-        element: <PrivateRoute><Categories></Categories></PrivateRoute>,
+        loader: ({ params }) =>
+          fetch(
+            `https://2nd-hand-phones-server.vercel.app/products/${params.id}`
+          ),
+        element: (
+          <PrivateRoute>
+            <Categories></Categories>
+          </PrivateRoute>
+        ),
       },
       {
-        path: '/item/:id',
+        path: "/item/:id",
         element: <SingleItem></SingleItem>,
-        loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
-      }
+        loader: ({ params }) =>
+          fetch(
+            `https://2nd-hand-phones-server.vercel.app/product/${params.id}`
+          ),
+      },
     ],
   },
   {
@@ -64,36 +74,38 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: '/dashboard',
-        element: <Dashboard></Dashboard>
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
       },
       {
-        path: '/dashboard/product',
-        element: <MyProduct></MyProduct>
+        path: "/dashboard/product",
+        element: <MyProduct></MyProduct>,
       },
       {
-        path: '/dashboard/addproduct',
-        element: <AddProduct></AddProduct>
+        path: "/dashboard/addproduct",
+        element: <AddProduct></AddProduct>,
       },
       {
-        path: '/dashboard/seller',
-        element: <AllSeller></AllSeller>
+        path: "/dashboard/seller",
+        element: <AllSeller></AllSeller>,
       },
       {
-        path: '/dashboard/buyer',
-        element: <AllBuyer></AllBuyer>
+        path: "/dashboard/buyer",
+        element: <AllBuyer></AllBuyer>,
       },
       {
-        path: '/dashboard/myorder',
-        element: <MyOrders></MyOrders>
+        path: "/dashboard/myorder",
+        element: <MyOrders></MyOrders>,
       },
       {
-        path: '/dashboard/paynow/:id',
+        path: "/dashboard/paynow/:id",
         element: <PayNow></PayNow>,
-        loader: ({params}) => fetch(`http://localhost:5000/buyitems/${params.id}`)
-        
-      }
-    ]
+        loader: ({ params }) =>
+          fetch(
+            `https://2nd-hand-phones-server.vercel.app/buyitems/${params.id}`
+          ),
+      },
+    ],
   },
   {
     path: "*",

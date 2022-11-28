@@ -3,26 +3,25 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../AuthProvider";
 
 const MyProduct = () => {
-    const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-    const url = `http://localhost:5000/myproduct?email=${user?.email}`;
-    // console.log(url);
+  const url = `https://2nd-hand-phones-server.vercel.app/myproduct?email=${user?.email}`;
+  // console.log(url);
 
-    const {data: product =[]} = useQuery({
-      queryKey: ["myproduct", user?.email],
-      queryFn: async() =>{
-        const res =await fetch(url, {
-            headers: {
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-        const data = await res.json();
-        return data;
-      }
-    });
-    
-    // console.log(product);
-    
+  const { data: product = [] } = useQuery({
+    queryKey: ["myproduct", user?.email],
+    queryFn: async () => {
+      const res = await fetch(url, {
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      });
+      const data = await res.json();
+      return data;
+    },
+  });
+
+  // console.log(product);
 
   return (
     <div className="m-4">
@@ -32,9 +31,7 @@ const MyProduct = () => {
           <table className="table w-full">
             <thead>
               <tr>
-                <th>
-                  
-                </th>
+                <th></th>
                 <th>Name</th>
                 <th>Brand</th>
                 <th>Post Date</th>
@@ -42,11 +39,9 @@ const MyProduct = () => {
               </tr>
             </thead>
             <tbody>
-              {product.map((item ,i) => (
+              {product.map((item, i) => (
                 <tr key={item._id}>
-                  <th>
-                    {i+1}
-                  </th>
+                  <th>{i + 1}</th>
                   <td>
                     <div className="flex items-center space-x-3">
                       <div className="avatar">
@@ -59,7 +54,9 @@ const MyProduct = () => {
                       </div>
                       <div>
                         <div className="font-bold">{item.name}</div>
-                        <div className="text-sm opacity-50">Resell Price: ${item.resellPrice}</div>
+                        <div className="text-sm opacity-50">
+                          Resell Price: ${item.resellPrice}
+                        </div>
                       </div>
                     </div>
                   </td>

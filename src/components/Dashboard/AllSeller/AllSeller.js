@@ -1,13 +1,15 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
-import toast from 'react-hot-toast';
-import ConfirmModal from '../../MainPages/Shared/ConfirmModal/ConfirmModal';
+import { useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
+import ConfirmModal from "../../MainPages/Shared/ConfirmModal/ConfirmModal";
 
 const AllSeller = () => {
   const { data: sellers = [], refetch } = useQuery({
     queryKey: ["seller"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/seller");
+      const res = await fetch(
+        "https://2nd-hand-phones-server.vercel.app/seller"
+      );
       const data = await res.json();
       return data;
     },
@@ -15,7 +17,7 @@ const AllSeller = () => {
 
   // verify seller
   const handleMakeVerify = (id) => {
-    fetch(`http://localhost:5000/seller/verify/${id}`, {
+    fetch(`https://2nd-hand-phones-server.vercel.app/seller/verify/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -37,7 +39,7 @@ const AllSeller = () => {
   };
 
   const handleDeleteBuyer = (buyer) => {
-    fetch(`http://localhost:5000/buyer/${buyer._id}`, {
+    fetch(`https://2nd-hand-phones-server.vercel.app/buyer/${buyer._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
