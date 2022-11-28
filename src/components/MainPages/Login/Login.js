@@ -1,18 +1,26 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import {useForm} from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../../../hooks/useToken';
 import { AuthContext } from '../../AuthProvider';
 
 const Login = () => {
     const {register, formState:{errors}, handleSubmit} = useForm();
-    const [loginError, setLoginError] =useState('');
+    const [loginError, setLoginError] = useState('');
+    const [loginUserEmail, setLoginUserEmail] = useState('');
+    const [token] = useToken(loginUserEmail);
     const location = useLocation();
     const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/';
 
-    const {signIn, loading} = useContext(AuthContext);
+    if(token){
+      navigate(from, { replace: true });
+    }
+
+    const { signIn, loading, providerLogin } = useContext(AuthContext);
 
     const handleLogin = data => {
         console.log(data);
@@ -21,8 +29,10 @@ const Login = () => {
         .then(result =>{
             const user = result.user;
             console.log(user);
-            toast.success('Login successful')
-            navigate(from, {replace: true});
+            setLoginUserEmail(data.email)
+            toast.success('Login successful');
+
+            
         })
         .catch(error => {
             console.log(error.message);
@@ -30,6 +40,17 @@ const Login = () => {
         })
         
     };
+
+     const googleProvider = new GoogleAuthProvider();
+
+     const handleGoogleSignIn = () => {
+       providerLogin(googleProvider)
+         .then((result) => {
+           const user = result.user;
+           console.log(user);
+         })
+         .catch((error) => console.error(error));
+     };
 
 
     return (
@@ -84,7 +105,7 @@ const Login = () => {
             </Link>
           </p>
           <div className="divider">OR</div>
-          <button className="btn btn-outline w-full btn-primary">
+          <button onClick={handleGoogleSignIn} className="btn btn-outline w-full btn-primary">
             Sign in with google
           </button>
         </div>
