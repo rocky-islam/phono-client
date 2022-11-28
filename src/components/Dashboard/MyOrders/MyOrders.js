@@ -61,7 +61,7 @@ const MyOrders = () => {
                       <br />
                     </td>
                     <td>
-                      <Link to={`/paynow/${item._id}`}>
+                      <Link to={`/dashboard/paynow/${item._id}`}>
                         <button className="btn btn-sm btn-info">Pay Now</button>
                       </Link>
                     </td>
