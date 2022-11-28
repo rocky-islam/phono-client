@@ -16,7 +16,7 @@ const Dashboard = () => {
     }
     return (
       <div>
-        This is Dash board
+        <h1 className='text-center my-8 lg:text-4xl'>Welcome to DashBoard</h1>
         {/* <div className="flex justify-center h-[500px] items-center">
           <div
             className="animate-spin  radial-progress text-primary"
