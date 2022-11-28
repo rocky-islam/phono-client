@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const AllSeller = () => {
 
-    const {data: sellers = []} = useQuery({
+    const {data: sellers = [], refetch} = useQuery({
         queryKey: ['seller'],
         queryFn: async () =>{
             const res = await fetch("http://localhost:5000/seller");
@@ -11,6 +12,22 @@ const AllSeller = () => {
             return data;
         }
     })
+
+    // verify seller 
+    const handleMakeVerify = id =>{
+        fetch(`http://localhost:5000/seller/verify/${id}`,{
+            method: 'PUT'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.modifiedCount > 0){
+                toast.success('Seller Verified Successfully');
+                refetch();
+            }
+        })
+        .catch(error => console.log(error))
+    }
 
     return (
       <div className="m-3">
@@ -29,12 +46,22 @@ const AllSeller = () => {
               </thead>
               <tbody>
                 {sellers.map((seller, i) => (
-                  <tr>
+                  <tr key={seller._id}>
                     <th>{i+1}</th>
                     <td>{seller.name}</td>
                     <td>{seller.email}</td>
                     <td><button className='btn btn-xs btn-error'>Delete</button></td>
-                    <td><button className='btn btn-xs btn-success'>Verify</button></td>
+                    <td>{
+                        seller?.verify ?
+                        <>
+                        <p className='btn btn-xs btn-success'>Already Verified</p>
+                        </>
+                        :
+                        <>
+                        <button onClick={() => handleMakeVerify(seller._id)} className='btn btn-xs btn-info'>Verify</button>
+                        </>
+                        
+                        }</td>
                   </tr>
                 ))}
               </tbody>
