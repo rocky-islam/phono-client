@@ -64,6 +64,9 @@ const MyOrders = () => {
                       <Link to={`/dashboard/paynow/${item._id}`}>
                         <button className="btn btn-sm btn-info">Pay Now</button>
                       </Link>
+                      {item.price && item.Paid && (
+                        <span className="btn btn-sm btn-info">Paid</span>
+                      )}
                     </td>
                     <th></th>
                   </tr>
